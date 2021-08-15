@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Thêm sản phẩm</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+
+<h2>Table Create Account</h2>
+<form method="post" th:action="@{/create}">
+    <table class="table">
+        <tbody>
+        <tr>
+            <th>id sản phẩm</th>
+            <th>Tên sản phẩm</th>
+            <th>Loại sản phẩm</th>
+            <th>Giá</th>
+        </tr>
+        <tr>
+            <td><input placeholder="Enter the idsp" name="idsp"></td>
+            <td><input placeholder="Enter the namesp" name="namesp"></td>
+            <td><select name="loaisp">
+                <option th:each="loaisp : ${listloaisp}" th:value="${loaisp.getLoaisp()}"></option>
+            </select></td>
+            <td><input type="number" placeholder="Enter the price" name="gia"></td>
+        </tr>
+        </tbody>
+    </table>
+    <button type="submit" class="btn btn-success">Create Product</button>
+</form>
+<a href="/product" class="btn btn-success">Back</a>
+</body>
+</html>
